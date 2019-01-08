@@ -1,0 +1,110 @@
+.stadium {
+    background: #7DCD79;
+    display: block;
+    width: 100vw;
+    height: 25vw;
+    box-sizing: border-box;
+
+}
+
+* {
+    position: relative;
+    text-transform: capitalize;
+}
+
+
+img {
+    height: 150px;
+}
+
+/* .attackList {
+    display: flex;
+    flex-wrap: wrap;
+    background: #FFFAFA;
+    position: initial;
+    text-transform: capitalize;
+} */
+/* 
+li {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0;
+    box-sizing: border-box;
+    border: 1px solid #666;
+    cursor: pointer;
+    transition: background 0.3s ease;
+} */
+
+.data {
+    background: #CCC;
+    width: 20vw;
+    padding: 15px 2%;
+    box-sizing: border-box;
+    top: 25px;
+
+}
+
+progress {
+    width: 100%;
+}
+
+p {
+    text-align: right;
+}
+
+.char {
+    height: 175px;
+    position: relative;
+}
+
+.sashank img {
+
+    left: 30vw;
+
+}
+
+.sashank data {
+
+    left: 15vw;
+
+}
+
+
+.hero img {
+    /* top: 18vw; */
+    left: 15vw;
+    top: 5vw;
+    float: left;
+
+
+}
+
+.enemyHP {
+    /* bottom: 5vw; */
+    left: 25vw;
+    height: 50px;
+    width: 200px;
+
+}
+
+.myHP {
+    bottom: 5vw;
+    left: 65vw;
+    width: 200px;
+    height: 50px;
+}
+
+.pbMe {
+    width: 200px;
+    height: 10px;
+}
+
+.pbEnemy {
+
+    width: 200px;
+    height: 10px;
+}
+
+.hero data {
+    right: 15vw;
+}

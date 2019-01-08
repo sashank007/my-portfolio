@@ -1,0 +1,24 @@
+.root {
+  width: 100%;
+  height: 500px;
+  background-color: #1ba94c;
+  padding: 50px;
+  margin-top: 50px;
+}
+
+.text {
+  display: inline-block;
+  width: 500px;
+  color: white;
+  margin: 0 0 10px;
+  font-family: adobe-garamond-pro;
+  font-weight: 300;
+}
+
+.hello {
+  /* color: #4dc4e1; */
+  color: white;
+  justify-content: center;
+  font-family: brandon-grotesque;
+  padding: 20px;
+}

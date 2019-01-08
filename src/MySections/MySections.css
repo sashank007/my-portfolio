@@ -1,0 +1,19 @@
+.nav-link {
+  color: indianred;
+}
+
+#navbar {
+  position: fixed;
+  width: 100%;
+}
+#navbar {
+  background-color: white;
+}
+
+#sectionAboutMe {
+  background-color: rgb(221, 221, 81);
+}
+
+#about {
+  background-color: pink !important;
+}

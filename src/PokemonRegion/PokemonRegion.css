@@ -1,0 +1,263 @@
+.myCharacter {
+    width: 50px;
+    height: 50px;
+    background-color: purple;
+}
+
+* {
+    overflow: hidden;
+}
+
+#canvas {
+    background: url(../assets//images/grass.png) 0 0;
+    width: 100vw;
+    height: 60vh;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+#moltress {
+    background: url(../assets//images/moltress_clear.png) no-repeat;
+    width: 60px;
+    display: inline-block;
+    height: 80px;
+    top: 15%;
+    position: absolute;
+    left: 40%;
+
+}
+
+#groudon {
+    background: url(../assets//images/groudon.png) no-repeat;
+    width: 60px;
+    display: inline-block;
+    height: 80px;
+    top: 15%;
+    position: absolute;
+    left: 55%;
+
+}
+
+#latias {
+    background: url(../assets//images/latias.png) no-repeat;
+    width: 50px;
+    display: inline-block;
+    height: 80px;
+    top: 20%;
+    position: absolute;
+    left: 45%;
+
+}
+
+#signGym {
+    background: url(../assets//images/sign.png) no-repeat;
+    width: 40px;
+    display: inline-block;
+    height: 40px;
+    top: 35%;
+    position: absolute;
+    width: 30px;
+    height: 34px;
+    left: 10%;
+}
+
+#gym {
+    width: 200px;
+    display: inline-block;
+    float: left;
+    height: 170px;
+    background: url(../assets/images/pokegym.png) no-repeat;
+}
+
+#flowers2 {
+    top: 15%;
+    left: 55%;
+    width: 60px;
+    height: 295px;
+    position: absolute;
+    background: url(../assets/images/flowers.png);
+
+}
+
+#flowers {
+    top: 15%;
+    left: 41%;
+    width: 60px;
+    height: 295px;
+    position: absolute;
+    background: url(../assets/images/flowers.png);
+}
+
+#sign_main {
+    top: 70%;
+    left: 70%;
+    width: 120px;
+    height: 100px;
+    position: absolute;
+    background: url(../assets/images/sign_main.png) no-repeat;
+
+}
+
+#pokecenter {
+    top: 55%;
+    left: 10%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background: url(../assets/images/pokecenter.png) no-repeat;
+}
+
+/* #trees_bottom {
+    width: 50px;
+    display: inline-block;
+    float: right;
+    height: 100%;
+    background: url(../assets/images/trees_row.png);
+} */
+
+#trees_square {
+
+    width: 100px;
+    display: inline-block;
+    float: left;
+    height: 100px;
+    margin-top: auto;
+    background: url(../assets/images/trees_square.png);
+}
+
+#trees_left {
+    width: 50px;
+    display: inline-block;
+    float: right;
+    height: 100%;
+    background: url(../assets/images/trees_2.png);
+}
+
+#gate {
+    /* width: 50px;
+    display: inline-block;
+    float: bottom;
+    height: 100%;
+    background: url(../assets/images/gate.png); */
+
+}
+
+#sign_poke {
+    background: url(../assets//images/sign.png) no-repeat;
+    width: 40px;
+    display: inline-block;
+    height: 40px;
+    top: 77%;
+    position: absolute;
+    width: 30px;
+    height: 34px;
+    left: 15%;
+}
+
+#character {
+    top: 50%;
+    left: 50%;
+
+    width: 32px;
+    height: 32px;
+
+    position: absolute;
+    margin: -16px 0 0 -16px;
+
+    background: url(../assets/images/male_oscar.png) no-repeat;
+    background-position: -32px 0px;
+    z-index: 50;
+}
+
+#trees_group {
+    width: 90px;
+    display: inline-block;
+    float: right;
+    height: 100%;
+    background: url(../assets/images/trees_weird.png)
+}
+
+#weird_tree {
+    top: 60%;
+    left: 93%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    margin: -16px 0 0 -16px;
+    /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAKMGlDQ…hjzNQfX7ad4bVqoD8N/cwEBHDM0hJAW7r+bUEAIAEAuOb/6xedQ8yp0FYAAAAASUVORK5CYII=) no-repeat; */
+    background-position: -32px 0px;
+    z-index: 50;
+
+}
+
+#entei {
+    background: url(../assets//images/entei.png) no-repeat;
+    width: 100px;
+    display: inline-block;
+    height: 160px;
+    top: 10%;
+    position: absolute;
+    left: 47%;
+}
+
+#lugia {
+    background: url(../assets//images/lugia.png) no-repeat;
+    width: 100px;
+    display: inline-block;
+    height: 160px;
+    top: 10%;
+    position: absolute;
+    left: 47%;
+}
+
+#walking_area {
+    /* margin: -200px 0 0 -400px; */
+}
+
+#character.front-right {
+    background-position: 0px 0px;
+}
+
+#character.front-stand {
+    background-position: -32px 0px;
+}
+
+#character.front-left {
+    background-position: -64px 0px;
+}
+
+#character.left-right {
+    background-position: 0px -32px;
+}
+
+#character.left-stand {
+    background-position: -32px -32px;
+}
+
+#character.left-left {
+    background-position: -64px -32px;
+}
+
+#character.right-right {
+    background-position: -64px -64px;
+}
+
+#character.right-stand {
+    background-position: -32px -64px;
+}
+
+#character.right-left {
+    background-position: -0px -64px;
+}
+
+#character.back-right {
+    background-position: 0px -96px;
+}
+
+#character.back-stand {
+    background-position: -32px -96px;
+}
+
+#character.back-left {
+    background-position: -64px -96px;
+}

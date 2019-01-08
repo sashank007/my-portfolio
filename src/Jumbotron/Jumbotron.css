@@ -1,0 +1,59 @@
+.jumbotron {
+  background-color: white;
+  border: 0.5px solid silver;
+  height: 45vh;
+}
+
+.display {
+  /* font-family: "bebasNeueRegular"; */
+  /* font-family: "Noto Sans TC", sans-serif; */
+  /* font-family: "Pacifico", cursive;
+   */
+  /* font-family: "Righteous", cursive; */
+  /* font-family: "Cantarell", sans-serif; */
+  font-family: "Comfortaa", cursive;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-size: 5rem;
+  color: rgb(54, 52, 52);
+  justify-content: left;
+  text-align: left;
+}
+
+#root>div>div>div:nth-child(2)>div {
+  background-color: #f5f8fa;
+  border: 0.5px solid silver;
+  height: 500px;
+}
+
+.Typist .Cursor {
+  animation: blink 1s linear infinite;
+  height: 15px;
+}
+
+.Typist {
+  /* padding: 35px; */
+  /* font-family: "Roboto Slab", serif; */
+  /* font-family: "Chakra Petch", sans-serif; */
+  font-family: "Bangers", cursive;
+  /* font-family: "Caveat", cursive; */
+  text-align: center;
+  justify-content: center;
+  color: #893689;
+  text-emphasis: size 1.5em;
+  font-size: 2rem;
+  margin: 50px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

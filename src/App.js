@@ -1,25 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import MySections from "./MySections/MySections";
+import Jumbotron from "./Jumbotron/Jumbotron";
+import PokemonIntro from "./PokemonIntro/PokemonIntro";
+import PokemonStadium from "./PokemonStadium/PokemonStadium";
+import PokemonAttacks from "./PokemonAttacks/PokemonAttacks";
+import PokemonRegion from "./PokemonRegion/PokemonRegion";
+import Pokemon from "./Pokemon/Pokemon";
+import SasGym from "./SasGym/SasGym";
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Jumbotron />
+        <PokemonRegion /> {/* <SasGym /> */}
+        {/* <Pokemon /> */} {/* <Pokemon /> */} {/* <PokemonAttacks /> */}{" "}
+        {/* <PokemonIntro /> */} {/* <PokemonStadium /> */}{" "}
+        {/* <MySections /> */}{" "}
       </div>
     );
   }
