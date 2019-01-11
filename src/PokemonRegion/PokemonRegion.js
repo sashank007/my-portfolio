@@ -5,6 +5,8 @@ import "./PokemonRegion.css";
 import keydown from "react-keydown";
 import $ from "jquery";
 import { findDOMNode } from "react-dom";
+import Jumbotron from "../Jumbotron/Jumbotron";
+import LongTextSnackbar from "../Common/SnackBar";
 var currentKey = false;
 var TimerWalk;
 // var me = findDOMNode(this.ref.character);
@@ -15,34 +17,71 @@ var lockUp = false; // when lock up, character won’t be able to move
 // character object
 var walking_area;
 // Settings:
-var walkSpeed = 70; //ms, animation speed
-var walkLength = 15; //px, move how much px per “walk”
+var walkSpeed = 80; //ms, animation speed
+var walkLength = 20; //px, move how much px per “walk”
 var newX;
-var obstacles, gym, trees_left, moltress, latias, groudon, weirdTree;
+var obstacles,
+  gym,
+  trees_left,
+  lugia,
+  moltress,
+  latias,
+  groudon,
+  weirdTree,
+  flowers,
+  flowers2,
+  mainSign,
+  pokeSign,
+  gymSign,
+  pokecenter;
 var newY;
 // const themeClass = theme ? theme.toLowerCase() : "secondary";
 export default class Pokemon extends Component {
   constructor() {
     super();
+
     this.state = {
       gamePiece: null,
+      people: ["fafaf", "abcd", "sashank"],
       myX: 0,
       myY: 0,
-      windowWidth: 1000,
       isCharFrontRight: true,
-      windowHeight: 300,
-      infrontOfTree: false
+      infrontOfTree: false,
+      shouldShowMessage: false,
+
+      displayMessage:
+        "Hi! Welcome to the Saso Region of Pokemon! Move around to checkout this region!",
+      alertText: "Looks like this tree can be cut down"
     };
   }
+  returnRows() {}
   componentDidMount() {
     gym = $("#gym");
     trees_left = $("#trees_group");
+    lugia = $("#lugia");
+    flowers = $("#flowers");
+    flowers2 = $("#flowers2");
+    pokecenter = $("pokecenter");
     // moltress = $("#moltress");
     // latias = $("#latias");
     // groudon = $("#groudon");
     weirdTree = $("#weird_tree");
+    gymSign = $("#signGym");
+    mainSign = $("#sign_main");
+    pokeSign = $("#sign_poke");
+    pokecenter = $("#pokecenter");
 
-    obstacles = [gym, trees_left];
+    obstacles = [
+      gym,
+      trees_left,
+      flowers,
+      flowers2,
+      lugia,
+      pokecenter,
+      mainSign,
+      pokeSign,
+      gymSign
+    ];
     me = $("#character");
     walking_area = $("#canvas");
     console.log("me in component did mount", me);
@@ -66,44 +105,26 @@ export default class Pokemon extends Component {
     if (!lockUp && currentKey === false) {
       currentKey = event.keyCode;
       if (currentKey === keySpace && this.state.infrontOfTree) {
-        // alert(
-        //   "Looks like this tree can be cut down. If only there were some way to!"
-        // );
         console.log(
           "Looks like this tree can be cut down. If only there were some way to!"
         );
+        this.setState({
+          shouldShowMessage: true,
+          displayMessage:
+            "Looks like this tree can be cut down. If only there were some way to!"
+        });
       }
       if (event.keyCode === keyLeft) {
         this.walk("left");
-        // this.setState((state, props) => {
-        //   return {
-        //     myX: state.myX - 10
-        //   };
-        // });
       }
       if (event.keyCode === keyRight) {
         this.walk("right");
-        // this.setState((state, props) => {
-        //   return {
-        //     myX: state.myX + 10
-        //   };
-        // });
       }
       if (event.keyCode === keyDown) {
         this.walk("down");
-        // this.setState((state, props) => {
-        //   return {
-        //     myY: state.myY + 10
-        //   };
-        // });
       }
       if (event.keyCode === keyUp) {
         this.walk("up");
-        // this.setState((state, props) => {
-        //   return {
-        //     myY: state.myY - 10
-        //   };
-        // });
       }
     }
   };
@@ -121,9 +142,17 @@ export default class Pokemon extends Component {
     }
   };
 
+  handleSnackClose = mustClose => {
+    console.log("handle snack close ", mustClose);
+    if (mustClose) {
+      this.setState({
+        shouldShowMessage: false
+      });
+    }
+  };
   canIwalk(posX, posY) {
     // Within Main Road (walking area)?
-    console.log("can i walk");
+    // console.log("can i walk");
     var wt = weirdTree;
     var wt_left = wt.position().left + parseInt(wt.css("margin-left"));
     var wt_top = wt.position().top + parseInt(wt.css("margin-top"));
@@ -134,7 +163,9 @@ export default class Pokemon extends Component {
       posY < wt_top + wt.height() + me.height() / 2
     ) {
       console.log("infront of treeeeeeeeeeeee");
-      this.setState({ infrontOfTree: true });
+      this.setState({
+        infrontOfTree: true
+      });
     }
     var walking_area_left =
       walking_area.position().left + parseInt(walking_area.css("margin-left"));
@@ -142,10 +173,10 @@ export default class Pokemon extends Component {
       walking_area.position().top + parseInt(walking_area.css("margin-top"));
 
     if (
-      posX < walking_area_left + me.width() / 2 + 20 ||
-      posX > walking_area_left + walking_area.width() - me.width() / 2 + 20 ||
-      posY < walking_area_top + me.height() / 2 + 20 ||
-      posY > walking_area_top + walking_area.height() - me.height() / 2 + 20
+      posX < walking_area_left + me.width() / 2 ||
+      posX > walking_area_left + walking_area.width() - me.width() / 2 ||
+      posY < walking_area_top + me.height() / 2 ||
+      posY > walking_area_top + walking_area.height() - me.height() / 2
     ) {
       return false;
     }
@@ -265,51 +296,61 @@ export default class Pokemon extends Component {
   }
   setCharClass() {
     return "front-right";
-    return "front-right";
-    return "front-stand";
-    return "front-left";
-    return "left-right";
-    return "left-left";
-    return "left-stand";
-    return "right-right";
-    return "right-stand";
-    return "left-left";
-    return "right-left";
-    return "back-right";
-    return "back-stand";
-    return "back-left";
   }
   render() {
-    let { isCharFrontRight } = this.state;
+    const { displayMessage, shouldShowMessage } = this.state;
     return (
       <div>
-        <div
-          ref="canvas"
-          id="canvas"
-          width={this.state.windowWidth}
-          height={this.state.windowHeight}
-        >
-          <div id="character" ref="character" class={this.setCharClass()} />{" "}
-          <div id="gym" ref="gym" /> <div id="signGym" />
-          {/* <div id="moltress" />
-          <div id="latias" /> */}
-          {/* <div id="entei" />
-          <div id="groudon" /> */}
-          <div id="sign_poke" />
-          <div id="pokecenter" />
-          <div id="flowers" />
-          <div id="flowers2" />
-          <div id="sign_main" />
-          <div id="lugia" />
-          <div id="weird_tree" />
-          <div id="trees_group" />
-          <div id="trees_bottom" /> {/* <div id="trees_square" /> */}{" "}
-          <div id="gate" />
+        {this.state.people.map(function(name, index) {
+          return <div key={index}>{name}</div>;
+        })}
+        <Jumbotron displayMessage={this.state.displayMessage} />{" "}
+        <div id="pokemon_region">
+          <div ref="canvas" id="canvas">
+            <div
+              id="character"
+              ref="character"
+              className={this.setCharClass()}
+            />{" "}
+            <div id="gym" ref="gym" /> <div id="signGym" />{" "}
+            {/* <div id="moltress" />
+                            <div id="latias" /> */}{" "}
+            {/* <div id="entei" />
+                            <div id="groudon" /> */}{" "}
+            <div id="sign_poke" />
+            <div id="pokecenter" />
+            <div id="flowers" />
+            <div id="flowers2" />
+            <div id="sign_main" />
+            <div id="lugia" />
+            <div id="weird_tree" />
+            <div id="trees_group" />
+            <div id="trees_bottom" /> {/* <div id="trees_square" /> */}{" "}
+            <div id="gate" />
+            <div id="poke_dialogue" />{" "}
+            {/* <div id="alert_window">
+                        <Typist className="alertTextTypist">
+                          <p class="alertText">{this.state.alertText}</p>
+                        </Typist>
+                        <img
+                          id="closeWinAlert"
+                          src="../assets/images/close.png"
+                          alt="x"
+                        />
+                      </div> */}{" "}
+            {shouldShowMessage ? (
+              <div id="snackbar">
+                <LongTextSnackbar
+                  closeSnack={this.handleSnackClose}
+                  displayMessage={displayMessage}
+                />{" "}
+              </div>
+            ) : (
+              <div />
+            )}{" "}
+          </div>{" "}
         </div>{" "}
       </div>
-      //   <div>
-      //     <div className="myCharacter" x="50" y="50" />
-      //   </div>
     );
   }
 }

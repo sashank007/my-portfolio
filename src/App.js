@@ -13,11 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Jumbotron />
-        <PokemonRegion /> {/* <SasGym /> */}
-        {/* <Pokemon /> */} {/* <Pokemon /> */} {/* <PokemonAttacks /> */}{" "}
-        {/* <PokemonIntro /> */} {/* <PokemonStadium /> */}{" "}
-        {/* <MySections /> */}{" "}
+        <PokemonRegion /> {/* <SasGym /> */} {/* <Pokemon /> */}{" "}
+        {/* <Pokemon /> */} {/* <PokemonAttacks /> */} {/* <PokemonIntro /> */}{" "}
+        {/* <PokemonStadium /> */} {/* <MySections /> */}{" "}
       </div>
     );
   }

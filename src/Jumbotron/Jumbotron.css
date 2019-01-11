@@ -19,11 +19,11 @@
   text-align: left;
 }
 
-#root>div>div>div:nth-child(2)>div {
+/* #root>div>div>div:nth-child(2)>div {
   background-color: #f5f8fa;
   border: 0.5px solid silver;
   height: 500px;
-}
+} */
 
 .Typist .Cursor {
   animation: blink 1s linear infinite;
