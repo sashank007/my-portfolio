@@ -4,15 +4,6 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 
-const action = (
-  <Button color="secondary" size="small" onClick={closeSnack}>
-    close
-  </Button>
-);
-function closeSnack() {
-  console.log("close snack");
-  this.props.closeSnack(true);
-}
 const styles = theme => ({
   snackbar: {
     margin: theme.spacing.unit
@@ -20,15 +11,28 @@ const styles = theme => ({
 });
 
 class LongTextSnackbar extends React.Component {
+  action() {
+    return (
+      <Button color="secondary" size="small" onClick={this.closeSnack}>
+        close{" "}
+      </Button>
+    );
+  }
+
+  closeSnack = () => {
+    console.log("close snack");
+    this.props.closeSnack(true);
+  };
   render() {
+    console.log("props ---", this.props);
     const { classes } = this.props;
     return (
       <div>
         <SnackbarContent
           className={classes.snackbar}
           message={this.props.displayMessage}
-          action={action}
-        />
+          action={this.action()}
+        />{" "}
       </div>
     );
   }

@@ -301,9 +301,7 @@ export default class Pokemon extends Component {
     const { displayMessage, shouldShowMessage } = this.state;
     return (
       <div>
-        {this.state.people.map(function(name, index) {
-          return <div key={index}>{name}</div>;
-        })}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Jumbotron displayMessage={this.state.displayMessage} />{" "}
         <div id="pokemon_region">
           <div ref="canvas" id="canvas">
@@ -314,9 +312,9 @@ export default class Pokemon extends Component {
             />{" "}
             <div id="gym" ref="gym" /> <div id="signGym" />{" "}
             {/* <div id="moltress" />
-                            <div id="latias" /> */}{" "}
+                                    <div id="latias" /> */}{" "}
             {/* <div id="entei" />
-                            <div id="groudon" /> */}{" "}
+                                    <div id="groudon" /> */}{" "}
             <div id="sign_poke" />
             <div id="pokecenter" />
             <div id="flowers" />
@@ -329,15 +327,15 @@ export default class Pokemon extends Component {
             <div id="gate" />
             <div id="poke_dialogue" />{" "}
             {/* <div id="alert_window">
-                        <Typist className="alertTextTypist">
-                          <p class="alertText">{this.state.alertText}</p>
-                        </Typist>
-                        <img
-                          id="closeWinAlert"
-                          src="../assets/images/close.png"
-                          alt="x"
-                        />
-                      </div> */}{" "}
+                                <Typist className="alertTextTypist">
+                                  <p class="alertText">{this.state.alertText}</p>
+                                </Typist>
+                                <img
+                                  id="closeWinAlert"
+                                  src="../assets/images/close.png"
+                                  alt="x"
+                                />
+                              </div> */}{" "}
             {shouldShowMessage ? (
               <div id="snackbar">
                 <LongTextSnackbar
